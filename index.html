@@ -1,91 +1,453 @@
 <!DOCTYPE html>
-<html lang="hi" class="h-full bg-[#F7F3E9]">
+<html lang="hi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>साहित्य दीप — कविताएं, गज़ल एवं विचार</title>
-  
-  <!-- Google Fonts: Noto Serif Devanagari & Rozha One -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;500;600;700&family=Rozha+One&display=swap" rel="stylesheet">
-  
-  <!-- Remixicon Icons -->
-  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
-  
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  
-  <style>
-    body {
-      font-family: 'Noto Serif Devanagari', serif;
-      background-color: #F7F3E9;
-      color: #3E2723;
-    }
-    .font-brand {
-      font-family: 'Rozha One', serif;
-    }
-    /* Smooth Scroll Bar */
-    ::-webkit-scrollbar {
-      width: 8px;
-    }
-    ::-webkit-scrollbar-track {
-      background: #F7F3E9;
-    }
-    ::-webkit-scrollbar-thumb {
-      background: #8D6E63;
-      border-radius: 4px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>साहित्य दीप — साहित्य का प्रकाश</title>
+    <!-- Google Fonts: Noto Serif Devanagari & Rozha One -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;500;600;700&family=Rozha+One&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-cream: #FFFDF9;
+            --bg-paper: #F9F5EC;
+            --card-cream: #F3EFE6;
+            --brown-dark: #3A2312;
+            --brown-deep: #5A3921;
+            --brown-medium: #8C5A3C;
+            --brown-accent: #C48B5A;
+            --text-main: #2A1A0E;
+            --text-sub: #554436;
+            --white: #FFFFFF;
+            --shadow: 0 10px 30px rgba(58, 35, 18, 0.08);
+            --shadow-hover: 0 15px 35px rgba(58, 35, 18, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Serif Devanagari', serif;
+            background-color: var(--bg-cream);
+            color: var(--text-main);
+            line-height: 1.8;
+            scroll-behavior: smooth;
+        }
+
+        /* --- Header & Navigation --- */
+        header {
+            background-color: var(--bg-paper);
+            border-bottom: 2px solid var(--brown-accent);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.2rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Rozha One', serif;
+            font-size: 2.2rem;
+            color: var(--brown-dark);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .logo i {
+            color: var(--brown-accent);
+            font-size: 1.8rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--brown-deep);
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--brown-accent);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            background: linear-gradient(135deg, var(--brown-dark), var(--brown-deep));
+            color: var(--bg-cream);
+            text-align: center;
+            padding: 5rem 2rem;
+            border-bottom: 4px solid var(--brown-accent);
+        }
+
+        .hero h1 {
+            font-family: 'Rozha One', serif;
+            font-size: 3.5rem;
+            color: #E8D3B9;
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 750px;
+            margin: 0 auto 2rem;
+            color: #D6C2A9;
+            font-style: italic;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--brown-accent);
+            color: var(--white);
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn:hover {
+            background-color: var(--brown-medium);
+            transform: translateY(-2px);
+        }
+
+        /* --- Main Layout --- */
+        .container {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: 'Rozha One', serif;
+            font-size: 2.5rem;
+            color: var(--brown-dark);
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '🪔';
+            display: block;
+            font-size: 1.5rem;
+            margin-top: 0.3rem;
+        }
+
+        /* --- Cards Grid --- */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .card {
+            background-color: var(--white);
+            border: 1px solid var(--card-cream);
+            border-radius: 12px;
+            padding: 2.5rem 2rem;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card:hover {
+            transform: translateY(-7px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--brown-accent);
+        }
+
+        .card-tag {
+            align-self: flex-start;
+            background-color: var(--bg-paper);
+            color: var(--brown-deep);
+            font-size: 0.85rem;
+            font-weight: 700;
+            padding: 0.3rem 0.9rem;
+            border-radius: 20px;
+            margin-bottom: 1.2rem;
+            border: 1px solid var(--card-cream);
+        }
+
+        .card blockquote {
+            font-size: 1.15rem;
+            color: var(--text-main);
+            margin-bottom: 1.5rem;
+            line-height: 2;
+            font-style: italic;
+        }
+
+        .card-author {
+            text-align: right;
+            font-weight: 700;
+            color: var(--brown-medium);
+            font-size: 1rem;
+            border-top: 1px dashed var(--card-cream);
+            padding-top: 1rem;
+        }
+
+        /* --- Reader Submission Section --- */
+        .submission-section {
+            background-color: var(--bg-paper);
+            border: 2px solid var(--card-cream);
+            border-radius: 16px;
+            padding: 3.5rem 2.5rem;
+            margin-top: 5rem;
+            box-shadow: var(--shadow);
+        }
+
+        .submission-container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            color: var(--brown-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group input, 
+        .form-group textarea {
+            width: 100%;
+            padding: 0.9rem 1.2rem;
+            border: 1px solid var(--brown-accent);
+            border-radius: 8px;
+            background-color: var(--white);
+            font-family: inherit;
+            font-size: 1rem;
+            color: var(--text-main);
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus, 
+        .form-group textarea:focus {
+            border-color: var(--brown-dark);
+            box-shadow: 0 0 8px rgba(90, 57, 33, 0.2);
+        }
+
+        .submit-btn {
+            width: 100%;
+            background-color: var(--brown-deep);
+            color: var(--white);
+            border: none;
+            padding: 1rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--brown-dark);
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: var(--brown-dark);
+            color: var(--bg-paper);
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-top: 5rem;
+            border-top: 3px solid var(--brown-accent);
+        }
+
+        footer p {
+            opacity: 0.85;
+            font-size: 0.95rem;
+        }
+
+        footer a {
+            color: var(--brown-accent);
+            text-decoration: none;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .nav-container { flex-direction: column; gap: 1rem; }
+            nav ul { gap: 1rem; }
+        }
+    </style>
 </head>
-<body class="min-h-screen flex flex-col justify-between selection:bg-[#8D6E63] selection:text-white">
+<body>
 
-  <!-- HEADER / NAVIGATION -->
-  <header class="bg-[#FFFDF7] border-b border-[#D7CCC8] sticky top-0 z-40 shadow-sm">
-    <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
-      
-      <!-- Logo -->
-      <a href="#" class="flex items-center gap-2 group">
-        <div class="w-10 h-10 rounded-full bg-[#4E342E] flex items-center justify-center text-[#F7F3E9] text-xl font-bold shadow-md group-hover:scale-105 transition">
-          🪔
+    <!-- Header Navigation -->
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <i class="fa-solid fa-feather-pointed"></i> साहित्य दीप
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#mahan">महान कवि</a></li>
+                    <li><a href="#samyog">संयोग शर्मा</a></li>
+                    <li><a href="#submit">रचना भेजें</a></li>
+                </ul>
+            </nav>
         </div>
-        <div>
-          <h1 class="font-brand text-2xl md:text-3xl text-[#3E2723] leading-none">साहित्य दीप</h1>
-          <p class="text-[11px] text-[#8D6E63] tracking-widest uppercase">काव्य, चिंतन एवं साहित्य</p>
-        </div>
-      </a>
+    </header>
 
-      <!-- Right Action Links -->
-      <div class="flex items-center gap-2 md:gap-3">
-        <!-- Instagram Link -->
-        <a href="https://instagram.com/sahitya_deep" target="_blank" rel="noopener noreferrer" 
-           class="px-3 py-1.5 rounded-full border border-[#E0D7C6] bg-[#FAF7F0] text-[#4E342E] hover:bg-[#4E342E] hover:text-[#F7F3E9] flex items-center gap-1.5 transition text-xs md:text-sm font-medium shadow-sm">
-          <i class="ri-instagram-line text-base text-[#E1306C]"></i>
-          <span class="hidden sm:inline">इंस्टाग्राम</span>
-        </a>
-
-        <!-- Admin Login / Logout Button -->
-        <button id="adminAuthBtn" onclick="toggleAdminAuth()" 
-                class="px-3 py-1.5 rounded-full bg-[#4E342E] text-[#F7F3E9] hover:bg-[#3E2723] flex items-center gap-1.5 transition text-xs md:text-sm shadow-sm">
-          <i class="ri-admin-line"></i>
-          <span id="adminBtnText">संपादक (Admin)</span>
-        </button>
-      </div>
-    </div>
-  </header>
-
-  <!-- MAIN CONTAINER -->
-  <main class="max-w-5xl mx-auto px-4 py-8 w-full flex-grow">
-    
     <!-- Hero Banner -->
-    <section class="text-center py-8 px-4 mb-8 bg-[#FFFDF7] border border-[#E0D7C6] rounded-2xl shadow-sm relative overflow-hidden">
-      <div class="absolute -top-10 -left-10 w-32 h-32 bg-[#D7CCC8]/20 rounded-full blur-2xl"></div>
-      <div class="absolute -bottom-10 -right-10 w-32 h-32 bg-[#8D6E63]/10 rounded-full blur-2xl"></div>
-      
-      <span class="inline-block px-3 py-1 bg-[#F5EBE6] text-[#4E342E] text-xs rounded-full font-medium mb-3">
-        साहित्यिक संगम व पाठक मंच
-      </span>
-      <h2 class="font-brand text-3xl md:text-4xl text-[#3E2723] mb-3">
-        शब्दों का दीप, साहित्य का प्रकाश
-      </h2>
-      <p class="text-[#6D4C41] max-w-xl mx-auto text-sm m
+    <section class="hero">
+        <h1>साहित्य दीप</h1>
+        <p>“शब्दों का प्रकाश, संवेदनाओं का घर — जहाँ विचारों से रूह को आलोकित किया जाता है”</p>
+        <a href="#submit" class="btn"><i class="fa-solid fa-pen-nib"></i> अपनी रचना प्रकाशित करें</a>
+    </section>
+
+    <!-- Main Content Container -->
+    <main class="container">
+
+        <!-- Section 1: Great Poets -->
+        <section id="mahan">
+            <h2 class="section-title">अमर विचार एवं महान रचनाएँ</h2>
+            <div class="grid">
+                
+                <div class="card">
+                    <span class="card-tag">शायरी</span>
+                    <blockquote>
+                        “हजारों जवाबों से अच्छी है मेरी खामोशी,<br>
+                        न जाने कितने सवालों की आबरू रख ली।”
+                    </blockquote>
+                    <div class="card-author">— मिर्ज़ा ग़ालिब</div>
+                </div>
+
+                <div class="card">
+                    <span class="card-tag">गज़ल</span>
+                    <blockquote>
+                        “रुकती है गर्दिशें तो कोई बात कीजिए,<br>
+                        शामें उदास हैं तो कोई बात कीजिए।”
+                    </blockquote>
+                    <div class="card-author">— बशीर बद्र</div>
+                </div>
+
+                <div class="card">
+                    <span class="card-tag">काव्य</span>
+                    <blockquote>
+                        “सिर्फ हंगामा खड़ा करना मेरा मकसद नहीं,<br>
+                        मेरी कोशिश है कि ये सूरत बदलनी चाहिए।”
+                    </blockquote>
+                    <div class="card-author">— दुष्यंत कुमार</div>
+                </div>
+
+                <div class="card">
+                    <span class="card-tag">दर्शन</span>
+                    <blockquote>
+                        “सत्य वही है जो आपको भीतर से स्वतंत्र करे,<br>
+                        बाहर के किसी बंधन का नाम धर्म नहीं है।”
+                    </blockquote>
+                    <div class="card-author">— ओशो</div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Section 2: Original Writings -->
+        <section id="samyog" style="margin-top: 5rem;">
+            <h2 class="section-title">संयोग शर्मा की मौलिक रचनाएँ</h2>
+            <div class="grid">
+
+                <div class="card" style="background-color: #FAF6F0;">
+                    <span class="card-tag" style="background-color: var(--brown-accent); color: white;">मौलिक कविता</span>
+                    <blockquote>
+                        “खामोशियों में भी एक गहरा शोर होता है,<br>
+                        जब कलम चलती है, दिल का हर कोना बोलता है।”
+                    </blockquote>
+                    <div class="card-author">— संयोग शर्मा</div>
+                </div>
+
+                <div class="card" style="background-color: #FAF6F0;">
+                    <span class="card-tag" style="background-color: var(--brown-accent); color: white;">विचार</span>
+                    <blockquote>
+                        “साहित्य मन का वह दर्पण है जिसमें इंसान अपनी आत्मा की सादगी को निहारता है।”
+                    </blockquote>
+                    <div class="card-author">— संयोग शर्मा</div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Section 3: Reader Submission Form -->
+        <section id="submit" class="submission-section">
+            <div class="submission-container">
+                <h2 class="section-title" style="margin-bottom: 1rem;">अपनी रचना भेजें</h2>
+                <p style="text-align: center; color: var(--text-sub); margin-bottom: 2rem;">
+                    यदि आप भी अपनी कविताएं, विचार या कहानियां 'साहित्य दीप' पर पाठकों के साथ साझा करना चाहते हैं, तो नीचे दिए गए फॉर्म के माध्यम से भेजें।
+                </p>
+
+                <!-- Secure Form Submission -->
+                <form action="https://formspree.io/f/xyzaaa" method="POST">
+                    <div class="form-group">
+                        <label for="name">आपका नाम:</label>
+                        <input type="text" id="name" name="name" placeholder="अपना नाम लिखें" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">ईमेल / संपर्क नंबर:</label>
+                        <input type="text" id="email" name="contact" placeholder="आपका ईमेल या मोबाइल नंबर" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="category">रचना का प्रकार:</label>
+                        <input type="text" id="category" name="category" placeholder="उदा. कविता, गज़ल, विचार, कहानी">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="content">आपकी रचना:</label>
+                        <textarea id="content" name="content" rows="6" placeholder="अपनी पंक्तियाँ यहाँ लिखें..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">
+                        <i class="fa-solid fa-paper-plane"></i> रचना सबमिट करें
+                    </button>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 <strong>साहित्य दीप</strong> | सर्वाधिकार सुरक्षित</p>
+        <p style="margin-top: 0.5rem; font-size: 0.85rem; opacity: 0.7;">
+            प्रधान संपादक: संयोग शर्मा | सृजन, साहित्य और संवेदना को समर्पित
+        </p>
+    </footer>
+
+</body>
+</html>
